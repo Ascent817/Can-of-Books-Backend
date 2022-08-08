@@ -1,11 +1,35 @@
-# Start your own "Can of Books" App
+# Can of Books - Server
 
-This repository has starter code to begin work on creating your own online bookshelf.
+**Author**: Mike, Varun
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-## What can books do?
+## Overview
 
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
+This app is meant to be a convienient place to store books you liked, and recomendations or wishlists.
 
-## Use this template
+## Getting Started
 
-Clone this repo to your own account with the green "Use this template" button. Then, add any collaborators. Now you are ready to start adding features! Deploy your site to let the world know which books have had the greatest impact on you, and what's recommended. Enjoy!
+Clone the repo and run `npm start`
+
+## Architecture
+
+This part of the app uses MongoDB as a database and Express for a REST-ful API.
+
+## Change Log
+
+8-08-2022 2:00 PM - Initial project set-up was comepleted
+
+## Estimates
+
+### Feature 1: Set up project
+
+Start: 1 PM
+
+Estimated time to completion: 1 hour
+
+Actual time to comepletion: 1 hour
+
+End: 2 PM
+
+<!-- ## Credit and Collaborations -->
+<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
