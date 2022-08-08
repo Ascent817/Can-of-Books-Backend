@@ -27,9 +27,26 @@ Start: 1 PM
 
 Estimated time to completion: 1 hour
 
-Actual time to comepletion: 1 hour
+Actual time to completion: 1 hour
 
 End: 2 PM
 
-<!-- ## Credit and Collaborations -->
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+### Feature 2: Set up book storage
+
+Start: 2 PM
+
+Estimated time to completion: 1 hour
+
+Actual time to completion: 1 hour
+
+End: 3 PM
+
+### Feature 3: Set up book display UI
+
+Start: 3 PM
+
+Estimated time to completion: 1 hour
+
+Actual time to completion:
+
+End:
