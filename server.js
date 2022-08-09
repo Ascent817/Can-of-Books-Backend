@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3001;
 const Book = require('./models/book.js');
 
 app.use(cors());
+app.use(express.json());
 
 mongoose.connect(process.env.DB_URL);
 const db = mongoose.connection;
@@ -32,13 +33,13 @@ async function getBooks(request, response, next) {
   }
 }
 
-async function postBooks(request, response, next) {
+async function postBooks(request, response) {
   console.log(request.body);
   try {
     let newBook = await Book.create(request.body);
-    res.status(200).send(newBook);
+    response.status(200).send(newBook);
   } catch (error) {
-    next(error);
+    response.status(500).send(error);
   }
 }
 
