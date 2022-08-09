@@ -18,9 +18,9 @@ db.once('open', () => {
 
 app.get('/ping', (request, response) => {
   response.send('Ping successful.');
-})
+});
 
-app.get('/books', GetBooks)
+app.get('/books', GetBooks);
 
 async function GetBooks(request, response, next) {
   try {
