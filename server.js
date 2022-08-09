@@ -11,7 +11,7 @@ app.use(cors());
 mongoose.connect(process.env.DB_URL);
 const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', () => {
   console.log('Mongoose connected.');
 });
@@ -31,4 +31,4 @@ async function GetBooks(request, response, next) {
   }
 }
 
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
