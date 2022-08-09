@@ -16,7 +16,7 @@ db.once('open', () => {
   console.log('Mongoose connected.');
 });
 
-app.get('/ping', (request, response) => {
+app.get('/', (request, response) => {
   response.send('Ping successful.');
 });
 
