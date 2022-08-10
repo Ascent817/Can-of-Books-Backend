@@ -24,6 +24,7 @@ app.get('/', (_request, response) => {
 app.get('/books', getBooks);
 app.post('/books', postBooks);
 app.delete('/books/:id', deleteBooks);
+app.put('/books/:id', putBooks);
 
 async function getBooks(_request, response, next) {
   try {
@@ -49,6 +50,18 @@ async function deleteBooks(request, response, next) {
   try {
     await Book.findByIdAndDelete(id);
     response.status(200).send('Book has been removed');
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+async function putBooks(request, response, next) {
+  try {
+    let id = request.params.id;
+    let data = request.body;
+    let updatedBook = await Book.findByIdAndUpdate(id, data, { new: true, ovewrite: true });
+    response.status(200).send(updatedBook);
   } catch (error) {
     next(error);
   }
