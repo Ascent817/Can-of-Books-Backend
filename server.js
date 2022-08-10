@@ -8,7 +8,6 @@ const Book = require('./models/book.js');
 
 app.use(cors());
 app.use(express.json());
-
 mongoose.connect(process.env.DB_URL);
 const db = mongoose.connection;
 
@@ -17,25 +16,26 @@ db.once('open', () => {
   console.log('Mongoose connected.');
 });
 
-app.get('/', (request, response) => {
+app.get('/', (_request, response) => {
   response.send('Ping successful.');
 });
 
 app.get('/books', getBooks);
 app.post('/books', postBooks);
 
-async function getBooks(request, response, next) {
+async function getBooks(_request, response, next) {
   try {
     let data = await Book.find();
     response.status(200).send(data);
   } catch (error) {
-    next(error);
+    response.status(500).send(error);
   }
 }
 
 async function postBooks(request, response) {
-  console.log(request.body);
+  console.log('!!!!!!!',request.body);
   try {
+
     let newBook = await Book.create(request.body);
     response.status(200).send(newBook);
   } catch (error) {
