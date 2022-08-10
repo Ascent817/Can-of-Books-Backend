@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const Book = require('./models/book.js');
+const { request, response } = require('express');
 
 app.use(cors());
 app.use(express.json());
@@ -22,6 +23,7 @@ app.get('/', (_request, response) => {
 
 app.get('/books', getBooks);
 app.post('/books', postBooks);
+app.delete('/books/:id', deleteBooks);
 
 async function getBooks(_request, response, next) {
   try {
@@ -33,7 +35,7 @@ async function getBooks(_request, response, next) {
 }
 
 async function postBooks(request, response) {
-  console.log('!!!!!!!',request.body);
+  console.log('!!!!!!!', request.body);
   try {
 
     let newBook = await Book.create(request.body);
@@ -42,5 +44,15 @@ async function postBooks(request, response) {
     response.status(500).send(error);
   }
 }
+async function deleteBooks(request, response, next) {
+  let id = request.params.id
+  try {
+    await Book.findByIdAndDelete(id);
+    response.status(200).send('Book has been removed');
+  } catch (error) {
+    next(error);
+  }
+}
+
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
